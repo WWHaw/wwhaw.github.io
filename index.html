@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人主页</title>
+  <style>
+    /* 全局变量与莫兰迪/柔和色彩盘 */
+    :root {
+      --bg-main: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      
+      /* 柔和配色方案 */
+      --card-indigo: #e0e7ff;
+      --card-emerald: #d1fae5;
+      --card-rose: #fce7f3;
+      --card-amber: #fef3c7;
+      --card-purple: #f3e8ff;
+      --card-sky: #e0f2fe;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 3rem 1.5rem;
+    }
+
+    .container { max-width: 960px; margin: 0 auto; }
+
+    /* 个人 Head 信息 */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #e2e8f0;
+      flex-shrink: 0;
+    }
+
+    .bio h1 { font-size: 1.85rem; font-weight: 800; margin-bottom: 0.25rem; }
+    .bio p { color: var(--text-muted); font-size: 1rem; }
+
+    /* 响应式卡片网格布局 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* 卡片基础样式与微悬浮动效 */
+    .card {
+      text-decoration: none;
+      color: inherit;
+      padding: 1.75rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.06);
+    }
+
+    /* 卡片不同配色应用 */
+    .card-indigo { background-color: var(--card-indigo); }
+    .card-emerald { background-color: var(--card-emerald); }
+    .card-rose    { background-color: var(--card-rose); }
+    .card-amber   { background-color: var(--card-amber); }
+    .card-purple  { background-color: var(--card-purple); }
+    .card-sky     { background-color: var(--card-sky); }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-icon { font-size: 1.8rem; }
+
+    .card-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    .card-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .card-desc { font-size: 0.875rem; color: #475569; }
+    
+    .card-footer {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      opacity: 0.75;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #e2e8f0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 顶部个人信息区域 -->
+    <header>
+      <img class="avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=Felix" alt="头像">
+      <div class="bio">
+        <h1>你好，我是 Your Name 👋</h1>
+        <p>一名热爱设计的开发者。专注于构建简单、优美且实用的数字体验。</p>
+      </div>
+    </header>
+
+    <!-- 主卡片区域 -->
+    <main class="card-grid">
+      <a href="about.html" class="card card-indigo">
+        <div>
+          <div class="card-header">
+            <span class="card-icon">🙋‍♂️</span>
+            <span class="card-tag">关于</span>
+          </div>
+          <div class="card-title">关于我 / About</div>
+          <p class="card-desc">了解我的背景、技术栈与日常个人习惯。</p>
+        </div>
+        <div class="card-footer">了解更多 &rarr;</div>
+      </a>
+
+      <a href="projects.html" class="card card-emerald">
+        <div>
+          <div class="card-header">
+            <span class="card-icon">🚀</span>
+            <span class="card-tag">作品</span>
+          </div>
+          <div class="card-title">项目作品 / Projects</div>
+          <p class="card-desc">展示我独立开发的产品、开源工具与设计示例。</p>
+        </div>
+        <div class="card-footer">了解更多 &rarr;</div>
+      </a>
+
+      <a href="blog.html" class="card card-rose">
+        <div>
+          <div class="card-header">
+            <span class="card-icon">✍️</span>
+            <span class="card-tag">博客</span>
+          </div>
+          <div class="card-title">技术博客 / Tech Notes</div>
+          <p class="card-desc">关于前端开发、系统设计与一些折腾记录。</p>
+        </div>
+        <div class="card-footer">了解更多 &rarr;</div>
+      </a>
+
+      <a href="moments.html" class="card card-amber">
+        <div>
+          <div class="card-header">
+            <span class="card-icon">📸</span>
+            <span class="card-tag">生活</span>
+          </div>
+          <div class="card-title">灵感摄影 / Moments</div>
+          <p class="card-desc">记录生活中的精彩瞬间、摄影作品与音乐推荐。</p>
+        </div>
+        <div class="card-footer">了解更多 &rarr;</div>
+      </a>
+
+      <a href="uses.html" class="card card-purple">
+        <div>
+          <div class="card-header">
+            <span class="card-icon">💻</span>
+            <span class="card-tag">清单</span>
+          </div>
+          <div class="card-title">我的装备 / Uses</div>
+          <p class="card-desc">我日常工作和创作所使用的硬件设备与软件工具。</p>
+        </div>
+        <div class="card-footer">了解更多 &rarr;</div>
+      </a>
+
+      <a href="contact.html" class="card card-sky">
+        <div>
+          <div class="card-header">
+            <span class="card-icon">📬</span>
+            <span class="card-tag">联系</span>
+          </div>
+          <div class="card-title">社交联系 / Contact</div>
+          <p class="card-desc">包含 GitHub, X (Twitter), Email 等多种联系方式。</p>
+        </div>
+        <div class="card-footer">了解更多 &rarr;</div>
+      </a>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+      © 2026 Built with Native HTML & CSS. Hosted on GitHub Pages.
+    </footer>
+  </div>
+</body>
+</html>
+
